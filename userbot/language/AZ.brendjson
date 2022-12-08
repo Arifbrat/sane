@@ -31,14 +31,14 @@
         "__helpme": {"NO_BOT": "❌`Bot qeyd olunmayıb! Zəhmət olmasa Bot Tokeni və İstifadəçi adını düzgün yazın. Modul dayandırıldı.`"},
         
 	"alives": {
-            "ALIVE1": "⚡ Brend Userbot aktivdir󠀁󠀁󠀁󠀁󠀁󠀁󠀁󠀁󠀁󠀁",
+            "ALIVE1": "⚡ Secret Userbot aktivdir󠀁󠀁󠀁󠀁󠀁󠀁󠀁󠀁󠀁󠀁",
             "ALIVE2": "👑 Sahibim:",
             "ALIVE3": "📂 Plugin Sayı:",
             "ALIVE4": "🖥️ Python Versiyası:",
             "ALIVE5": "💻 Telethon Versiyası:",
             "ALIVE6": "🤖 Brend Versiyası:",
-            "ALIVE7": "**👑 Sahibim Brend Userbot işlədir\n\n🤴🏻 Sahibim: {}\n⚡ Brend Userbot Versiyası: {}**",
-            "ALIVE8": "**✅ Brend userbot {} üçün quruldu və istifadəyə hazırdır.**"
+            "ALIVE7": "**👑 Sahibim Secret Userbot işlədir\n\n🤴🏻 Sahibim: {}\n⚡Secret Userbot Versiyası: {}**",
+            "ALIVE8": "**✅Secret userbot {} üçün quruldu və istifadəyə hazırdır.**"
         },
 
         "admin": {
