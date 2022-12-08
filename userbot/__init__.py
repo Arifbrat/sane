@@ -115,7 +115,8 @@ def butonla(sehife, modullar):
     butonlar = []
     for pairs in pairs[sehife]:
         butonlar.append([custom.Button.inline("⚡ " + pair, data=f"bilgi[{sehife}]({pair})") for pair in pairs])
-    butonlar.append([custom.Button.inline("👈🏻 Geri", data=f"sehife({(max_pages - 1) if sehife == 0 else (sehife - 1)})"), custom.Button.inline("❎ Bağla ❎", data="close"), custom.Button.inline("İləri 👉🏻", data=f"sehife({0 if sehife == (max_pages - 1) else sehife + 1})")])
+    butonlar.append([custom.Button.inline("👈🏻
+🔙Geri", data=f"sehife({(max_pages - 1) if sehife == 0 else (sehife - 1)})"), custom.Button.inline("🗑️Bağla", data="close"), custom.Button.inline("İləri 👉🏻", data=f"sehife({0 if sehife == (max_pages - 1) else sehife + 1})")])
     return [max_pages, butonlar]
 
 with bot:
@@ -139,9 +140,9 @@ with bot:
         @tgbot.on(NewMessage(pattern='/start'))
         async def helpstart(event):
             if not event.message.from_id == uid:
-                await event.reply(f'Salam mən @BrendUserbot Assistant!\nMən {BREND_MENTION} üçün hazırlanmışam, yəni sənə kömək edə bilmərəm.\nAmma sən də öz hesabına [Brend Userbot](t.me/BrendUserbot) qura bilərsən.')
+                await event.reply(f'Salam mən @secretUsbot Assistant!\nMən {BREND_MENTION} üçün hazırlanmışam, yəni sənə kömək edə bilmərəm.\nAmma sən də öz hesabına [Secret Userbot](t.me/SecretUsbot) qura bilərsən.')
             else:
-                await event.reply(f'Salam {DEFAULT_NAME}!\nBrend Köməkçi aktivdir.')
+                await event.reply(f'Salam {DEFAULT_NAME}!\nSecret Köməkçi aktivdir.')
                                   
         @tgbot.on(InlineQuery)  
         async def inline_handler(event):
