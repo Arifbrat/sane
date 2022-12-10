@@ -170,22 +170,22 @@ with bot:
                 return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
             sehife = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonla(sehife, CMD_HELP)
-            text = f"**⚡ 𝐁𝐫𝐞𝐧𝐝 𝐔𝐬𝐞𝐫𝐛𝐨𝐭​**\n\n**📥 Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄 Səhifə:** {sehife + 1}/{veriler[0]}"
+            text = f"**👑Secret Userbot*\n\n**📥 Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄 Səhifə:** {sehife + 1}/{veriler[0]}"
             await event.edit(text, file=helplogo, buttons=veriler[1], link_preview=False)
         
         @tgbot.on(callbackquery.CallbackQuery(data=compile(rb"ofen")))
         async def ofen(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
+                return await event.answer("❌Hey! Mənim mesajlarıma toxunma! Öz hesabına @SecretUsbot qur.", cache_time=0, alert=True)
             sehife = int(looters)
             veriler = butonla(sehife, CMD_HELP)
-            text = f"**⚡ 𝐁𝐫𝐞𝐧𝐝 𝐔𝐬𝐞𝐫𝐛𝐨𝐭​**\n\n**📥Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄 Səhifə:** {sehife + 1}/{veriler[0]}"
+            text = f"**👑Secret Userbot​**\n\n**📥Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄Səhifə:** {sehife + 1}/{veriler[0]}"
             await event.edit(text, file=helplogo,  buttons=veriler[1],  link_preview=False)
 
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"close")))
         async def sehife(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
+                return await event.answer("❌Hey! Mənim mesajlarıma toxunma! Öz hesabına @SecretUsbot qur.", cache_time=0, alert=True)
             buttons =[[custom.Button.inline("Menyunu aç", data="ofen")]]
             await event.edit("Menyu bağlandı", buttons=buttons)
 
@@ -211,7 +211,7 @@ with bot:
             cmd = event.data_match.group(1).decode("UTF-8")
             sehife = int(event.data_match.group(2).decode("UTF-8"))
             emr = event.data_match.group(3).decode("UTF-8")
-            result = f"**🗂️ Fayl:** `{cmd}`\n"
+            result = f"**🗂️Fayl:** `{cmd}`\n"
             if CMD_HELP_BOT[cmd]['info']['info'] == '':
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
                     result += f"**⬇️Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
