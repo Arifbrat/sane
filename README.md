@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://telegra.ph/file/eb135ce7993786cc39beb.jpg" width="300" height="300">
+  <img src="https://te.legra.ph/file/5579c04c24fd5dce3116f.jpg" width="300" height="300">
   <h1>Secret Userbot</h1>
 </div>
 <p align="center">
