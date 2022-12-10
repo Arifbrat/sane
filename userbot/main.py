@@ -24,12 +24,12 @@ AFKSTR = [
     "`Sahibim hazırda burda deyil mən isə onun mükəmməl olan @SecretUsbot -uyam\nMəncə sahibimdən sənə də belə bir bot qurmasını istməlisən`",
 ]
 
-UNAPPROVED_MSG = ("🗣️ Hey {mention}, Mən @SecretUsbot -am.\n\n"
-                  "✍🏻 Sizin Sahibimə yazmaq icazəniz yoxdur\n"
-                  "✅ Sahibimin sizə icazə verməsini gözləyin\n"
-                  "🙃 Yazmağa davam etsəniz əngəllənəcəksiniz\n"
-                  "✨ Gözlədiyiniz üçün təşəkkürlər\n"
-                  "⚡ İmza: @SecretUsbot)
+UNAPPROVED_MSG = ("🗣️Hey {mention}, Mən @SecretUsbot -am.\n\n"
+                  "✍🏻Sizin Sahibimə yazmaq icazəniz yoxdur\n"
+                  "✅Sahibimin sizə icazə verməsini gözləyin\n"
+                  "🙃Yazmağa davam etsəniz əngəllənəcəksiniz\n"
+                  "✨Gözlədiyiniz üçün təşəkkürlər\n"
+                  "👑İmza: @SecretUsbot)
 
 DB = connect("brend.check")
 CURSOR = DB.cursor()
@@ -160,7 +160,7 @@ except PhoneNumberInvalidError:
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
-LOGS.info(f"Brend Userbot online! Support => @BrendSUP | Brend Version: {BREND_VERSION}")
+LOGS.info(f"Secret Userbot online! Support => @TheSecretSup | Secret Versiya: {BREND_VERSION}")
 """
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
