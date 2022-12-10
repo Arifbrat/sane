@@ -13,9 +13,9 @@ from math import ceil
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
 if CONSOLE_LOGGER_VERBOSE:
-    basicConfig(format="%(asctime)s - @BrendUserBot - %(levelname)s - %(message)s", level=DEBUG)
+    basicConfig(format="%(asctime)s - @SecretUsBot - %(levelname)s - %(message)s", level=DEBUG)
 else:
-    basicConfig(format="%(asctime)s - @BrendUserBot - %(levelname)s - %(message)s",  level=INFO)
+    basicConfig(format="%(asctime)s - @SecretUsBot - %(levelname)s - %(message)s",  level=INFO)
 LOGS = getLogger(__name__)
 
 if version_info[0] < 3 or version_info[1] < 8:
@@ -23,7 +23,7 @@ if version_info[0] < 3 or version_info[1] < 8:
               "Birdən çox xüsusiyyət bundan asılıdır. Bot bağlanır.")
     quit(1)
     
-BREND_VERSION = "v5"
+BREND_VERSION = "v1"
 API_ID = int(os.environ.get("API_KEY", "1558926"))
 API_HASH = os.environ.get("API_HASH", "69c4c16e17e9f637818f2cfce8f9bce5")
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
@@ -71,7 +71,7 @@ BRAIN_CHECKER = []
 if STRING_SESSION:
     bot = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 else:
-    bot = TelegramClient("brend", API_ID, API_HASH)
+    bot = TelegramClient("secret", API_ID, API_HASH)
 
 if os.path.exists("brend.check"):
     os.remove("brend.check")
@@ -93,11 +93,11 @@ async def check_botlog_chatid():
         return
     entity = await bot.get_entity(BOTLOG_CHATID)
     if entity.default_banned_rights.send_messages:
-        LOGS.info("Hesabınızla BOTLOG_CHATID qrupuna mesaj göndərmək olmurş/nQrup ID-sini düzgün yazdığınızdan əmin olun.")
+        LOGS.info("Hesabınızla BOTLOG_CHATID qrupuna mesaj göndərmək olmur/nQrup ID-sini düzgün yazdığınızdan əmin olun.")
         quit(1)
         
 if not BOT_TOKEN == None:
-    tgbot = TelegramClient("Brend_Bot",api_id=API_ID, api_hash=API_HASH).start(bot_token=BOT_TOKEN)
+    tgbot = TelegramClient("Secret_Bot",api_id=API_ID, api_hash=API_HASH).start(bot_token=BOT_TOKEN)
 else:
     tgbot = None
 
@@ -114,15 +114,15 @@ def butonla(sehife, modullar):
     pairs = [pairs[i:i + Setir] for i in range(0, len(pairs), Setir)]
     butonlar = []
     for pairs in pairs[sehife]:
-        butonlar.append([custom.Button.inline("⚡ " + pair, data=f"bilgi[{sehife}]({pair})") for pair in pairs])
-    butonlar.append([custom.Button.inline("👈🏻
-🔙Geri", data=f"sehife({(max_pages - 1) if sehife == 0 else (sehife - 1)})"), custom.Button.inline("🗑️Bağla", data="close"), custom.Button.inline("İləri 👉🏻", data=f"sehife({0 if sehife == (max_pages - 1) else sehife + 1})")])
+        butonlar.append([custom.Button.inline("👑 " + pair, data=f"bilgi[{sehife}]({pair})") for pair in pairs])
+    butonlar.append([custom.Button.inline("⬅️
+🔙Geri", data=f"sehife({(max_pages - 1) if sehife == 0 else (sehife - 1)})"), custom.Button.inline("🗑️Bağla", data="close"), custom.Button.inline("İləri ➡️", data=f"sehife({0 if sehife == (max_pages - 1) else sehife + 1})")])
     return [max_pages, butonlar]
 
 with bot:
     try:
-        bot(JoinChannelRequest("@BrendUserbot"))
-        bot(JoinChannelRequest("@BrendSupport"))
+        bot(JoinChannelRequest("@SecretUsbot"))
+        bot(JoinChannelRequest("@TheSecretSup"))
     except:
         pass
 
@@ -140,7 +140,7 @@ with bot:
         @tgbot.on(NewMessage(pattern='/start'))
         async def helpstart(event):
             if not event.message.from_id == uid:
-                await event.reply(f'Salam mən @secretUsbot Assistant!\nMən {BREND_MENTION} üçün hazırlanmışam, yəni sənə kömək edə bilmərəm.\nAmma sən də öz hesabına [Secret Userbot](t.me/SecretUsbot) qura bilərsən.')
+                await event.reply(f'Salam mən @SecretUsbot Assistant!\nMən {BREND_MENTION} üçün hazırlanmışam, yəni sənə kömək edə bilmərəm.\nAmma sən də öz hesabına [Secret Userbot](t.me/SecretUsbot) qura bilərsən.')
             else:
                 await event.reply(f'Salam {DEFAULT_NAME}!\nSecret Köməkçi aktivdir.')
                                   
@@ -149,13 +149,13 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@BrendUserbot"):
+            if event.query.user_id == uid and query.startswith("@SecretUsbot"):
                 rev_text = query[::-1]
                 veriler = (butonla(0, sorted(CMD_HELP)))
                 result = builder.photo(
                     file=helplogo,
                     link_preview=False, 
-                    text=f"**⚡ 𝐁𝐫𝐞𝐧𝐝 𝐔𝐬𝐞𝐫𝐛𝐨𝐭​**\n\n**📥 Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄 Səhifə:** 1/{veriler[0]}", 
+                    text=f"**👑Secret Userbot**\n\n**📥Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄Səhifə:** 1/{veriler[0]}", 
                     buttons=veriler[1])
             elif query.startswith("http"):
                 parca = query.split(" ")
