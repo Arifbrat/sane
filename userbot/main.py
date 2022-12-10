@@ -21,15 +21,15 @@ AFKSTR = [
     "`Xahiş edirəm bir mesaj yazın və o mesaj məni indi olduğumdan daha dəyərli hiss etdirsin.`",
     "`Burda olsaydım,\nSizə harada olduğumu deyərdim.\n\nAmma mən deyiləm,\nqayıdanda məndən soruş...`",
     "`Həyat çox qısadır, edilə bilinəcək çox şey var...\nOnlardan birini edirəm...`",
-    "`Sahibim hazırda burda deyil mən isə onun mükəmməl olan @BrendUserbot -uyam\nMəncə sahibimdən sənə də belə bir bot qurmasını istməlisən`",
+    "`Sahibim hazırda burda deyil mən isə onun mükəmməl olan @SecretUsbot -uyam\nMəncə sahibimdən sənə də belə bir bot qurmasını istməlisən`",
 ]
 
-UNAPPROVED_MSG = ("🗣️ Hey {mention}, Mən @BrendUserBot -am.\n\n"
+UNAPPROVED_MSG = ("🗣️ Hey {mention}, Mən @SecretUsbot -am.\n\n"
                   "✍🏻 Sizin Sahibimə yazmaq icazəniz yoxdur\n"
                   "✅ Sahibimin sizə icazə verməsini gözləyin\n"
                   "🙃 Yazmağa davam etsəniz əngəllənəcəksiniz\n"
                   "✨ Gözlədiyiniz üçün təşəkkürlər\n"
-                  "⚡ İmza: @BrendUserbot")
+                  "⚡ İmza: @SecretUsbot)
 
 DB = connect("brend.check")
 CURSOR = DB.cursor()
@@ -91,7 +91,7 @@ def extractCommands(file):
                         else:
                             CmdHelp.set_file_info(Isim, Deger)
             for Əmr in Əmrler:
-                CmdHelp.add_command(Əmr, None, 'Bu plugin Brend Userbot məhsulu deyil. Hərhansısa bir açıqlama tapılmadı.')
+                CmdHelp.add_command(Əmr, None, 'Bu plugin Secret Userbot məhsulu deyil. Hərhansısa bir açıqlama tapılmadı.')
             CmdHelp.add()
 
 try:
@@ -102,7 +102,7 @@ try:
         bot.disconnect()
 
     PLUGIN_MESAJLAR = {}
-    ORJ_PLUGIN_MESAJLAR = {"alive": "`🇦🇿Qarabağ Azərbaycandır\n👑Secret Userbot İşləyir`", "alives": f"https://telegra.ph/file/d61b9172fc143fdfc86a2.gif", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`Özünüzdən muğayat olun mən gedirəm🤠`", "pm": UNAPPROVED_MSG, "dızcı": "Stiket Brend Paketinə əlavə olunur", "ban": "**{mention}** `qadağan edildi!`", "mute": "**{mention}** `səssizə alındı`", "approve": "**{mention}** `mənə mesaj göndərə bilərsən!`", "tagsleep": "3", "disapprove": "{mention} **Bundan sonra mənə mesaj göndərə bilməzsən!**", "block": "**{mention}** `əngəlləndin!`"}
+    ORJ_PLUGIN_MESAJLAR = {"alive": "`🇦🇿Qarabağ Azərbaycandır\n👑Secret Userbot İşləyir`", "alives": f"https://te.legra.ph/file/5579c04c24fd5dce3116f.jpg", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`👋Özünüzdən muğayat olun mən gedirəm`", "pm": UNAPPROVED_MSG, "dızcı": "Stiket Secret Paketinə əlavə olunur", "ban": "**{mention}** `qadağan edildi!`", "mute": "**{mention}** `səssizə alındı`", "approve": "**{mention}** `mənə mesaj göndərə bilərsən!`", "tagsleep": "3", "disapprove": "{mention} **Bundan sonra mənə mesaj göndərə bilməzsən!**", "block": "**{mention}** `əngəlləndin!`"}
 
     PLUGIN_MESAJLAR_NOVLER = ["alive", "alives", "afk", "kickme", "pm", "dızcı", "ban", "mute", "approve", "tagsleep", "disapprove", "block"]
     for mesaj in PLUGIN_MESAJLAR_NOVLER:
