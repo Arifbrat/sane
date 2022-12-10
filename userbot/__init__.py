@@ -179,13 +179,13 @@ with bot:
                 return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
             sehife = int(looters)
             veriler = butonla(sehife, CMD_HELP)
-            text = f"**⚡ 𝐁𝐫𝐞𝐧𝐝 𝐔𝐬𝐞𝐫𝐛𝐨𝐭​**\n\n**📥 Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄 Səhifə:** {sehife + 1}/{veriler[0]}"
+            text = f"**⚡ 𝐁𝐫𝐞𝐧𝐝 𝐔𝐬𝐞𝐫𝐛𝐨𝐭​**\n\n**📥Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄 Səhifə:** {sehife + 1}/{veriler[0]}"
             await event.edit(text, file=helplogo,  buttons=veriler[1],  link_preview=False)
 
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"close")))
         async def sehife(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
+                return await event.answer("❌Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
             buttons =[[custom.Button.inline("Menyunu aç", data="ofen")]]
             await event.edit("Menyu bağlandı", buttons=buttons)
 
@@ -193,47 +193,47 @@ with bot:
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
+                return await event.answer("❌Hey! Mənim mesajlarıma toxunma! Öz hesabına @SecretUsbot qur.", cache_time=0, alert=True)
             sehife = int(event.data_match.group(1).decode("UTF-8"))
             emr = event.data_match.group(2).decode("UTF-8")
             try:
                 butonlar = [custom.Button.inline("💎 " + cmd[0], data=f"emr[{emr}[{sehife}]]({cmd[0]})") for cmd in CMD_HELP_BOT[emr]['commands'].items()]
             except KeyError:
-                return await event.answer("❌ Bu modula açıqlama yazılmayıb.", cache_time=0, alert=True)
+                return await event.answer("❌Bu modula açıqlama yazılmayıb.", cache_time=0, alert=True)
             butonlar = [butonlar[i:i + 2] for i in range(0, len(butonlar), 2)]
-            butonlar.append([custom.Button.inline("👈🏻 Geri", data=f"sehife({sehife})")])
-            await event.edit(f"**📂 Fayl:** `{emr}`\n**🔢 Əmr sayı:** `{len(CMD_HELP_BOT[emr]['commands'])}`", file=helplogo, buttons=butonlar, link_preview=False)
+            butonlar.append([custom.Button.inline("⬅️Geri", data=f"sehife({sehife})")])
+            await event.edit(f"**📂Fayl:** `{emr}`\n**🔢Əmr sayı:** `{len(CMD_HELP_BOT[emr]['commands'])}`", file=helplogo, buttons=butonlar, link_preview=False)
 
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"emr\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def emr(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
+                return await event.answer("❌Hey! Mənim mesajlarıma toxunma! Öz hesabına @SecretUsbot qur.", cache_time=0, alert=True)
             cmd = event.data_match.group(1).decode("UTF-8")
             sehife = int(event.data_match.group(2).decode("UTF-8"))
             emr = event.data_match.group(3).decode("UTF-8")
             result = f"**🗂️ Fayl:** `{cmd}`\n"
             if CMD_HELP_BOT[cmd]['info']['info'] == '':
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
-                    result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
-                    result += f"**⚠️ Diqqət:** {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
+                    result += f"**⬇️Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
+                    result += f"**⚠️Diqqət:** {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
                 else:
-                    result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n\n"
+                    result += f"**⬇️Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n\n"
             else:
-                result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
+                result += f"**⬇️Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
-                    result += f"**⚠️ Diqqət:** {CMD_HELP_BOT[cmd]['info']['warning']}\n"
-                result += f"**ℹ️ Info:** {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
+                    result += f"**⚠️Diqqət:** {CMD_HELP_BOT[cmd]['info']['warning']}\n"
+                result += f"**ℹ️Info:** {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
             command = CMD_HELP_BOT[cmd]['commands'][emr]
             if command['params'] is None:
                 result += f"**🛠 Əmr:** `{PATTERNS[:1]}{command['command']}`\n"
             else:
                 result += f"**🛠 Əmr:** `{PATTERNS[:1]}{command['command']} {command['params']}`\n"
             if command['example'] is None:
-                result += f"**💬 Açıqlama:** `{command['usage']}`\n\n"
+                result += f"**💬Açıqlama:** `{command['usage']}`\n\n"
             else:
-                result += f"**💬 Açıqlama:** `{command['usage']}`\n"
-                result += f"**⌨️ Nümunə:** `{PATTERNS[:1]}{command['example']}`\n\n"
-            await event.edit(result, file=helplogo, buttons=[custom.Button.inline("👈🏻 Geri", data=f"bilgi[{sehife}]({cmd})")], link_preview=False)
+                result += f"**💬Açıqlama:** `{command['usage']}`\n"
+                result += f"**⌨️Nümunə:** `{PATTERNS[:1]}{command['example']}`\n\n"
+            await event.edit(result, file=helplogo, buttons=[custom.Button.inline("⬅️Geri", data=f"bilgi[{sehife}]({cmd})")], link_preview=False)
     except Exception as e:
         print(e)
         LOGS.info(f"Botunuzda inline rejimi deaktivdir./nAktivləşdirmək üçün botunuzda inline rejimini aktivləşdirin./nBunun xaricində bir problem olduğunu düşünürsünüzsə, dəstək qrupumla əlaqə saxlayın. @BrendSUP/n/n{e}")
