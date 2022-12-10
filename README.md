@@ -5,15 +5,15 @@
 <p align="center">
     Secret 𝑈𝑠𝑒𝑟𝐵𝑜𝑡, 𝑇𝑒𝑙𝑒𝑔𝑟𝑎𝑚ı daha sadə və funksional hala gətirmək üçün sizin xidmətinizdədir. Userbotun qurulumu tamamı ilə pulsuzdur. <br>
     <br>
-        <a href="https://t.me/BrendUserbot">Telegram </a> |
-        <a href="https://t.me/BrendSUP">Kömək qrupumuz</a>
+        <a href="https://t.me/SecretUsbot">Telegram </a> |
+        <a href="https://t.me/TheSecretSup">Kömək qrupumuz</a>
     <br>
 </p>
 
 ----
 
 
-***Hər hansı problem və ya şikayətiniz varsa bizim [kömək qrupumuza](https://t.me/BrendSUP) yazın.***
+***Hər hansı problem və ya şikayətiniz varsa bizim [kömək qrupumuza](https://t.me/TheSecretSup) yazın.***
 
 ```
     Diqqət: Userbot işlətərkən Telegram hesabin banlana bilər
