@@ -102,7 +102,7 @@ try:
         bot.disconnect()
 
     PLUGIN_MESAJLAR = {}
-    ORJ_PLUGIN_MESAJLAR = {"alive": "`⚡️ 𝙱​𝚛彡𝚗𝚍​ UserBot online...`", "alives": f"https://telegra.ph/file/d61b9172fc143fdfc86a2.gif", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`Özünüzdən muğayat olun mən gedirəm🤠`", "pm": UNAPPROVED_MSG, "dızcı": "Stiket Brend Paketinə əlavə olunur", "ban": "**{mention}** `qadağan edildi!`", "mute": "**{mention}** `səssizə alındı`", "approve": "**{mention}** `mənə mesaj göndərə bilərsən!`", "tagsleep": "3", "disapprove": "{mention} **Bundan sonra mənə mesaj göndərə bilməzsən!**", "block": "**{mention}** `əngəlləndin!`"}
+    ORJ_PLUGIN_MESAJLAR = {"alive": "`🇦🇿Qarabağ AAzərbaycandır\n👑Secret Userbot İşləyir`", "alives": f"https://telegra.ph/file/d61b9172fc143fdfc86a2.gif", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`Özünüzdən muğayat olun mən gedirəm🤠`", "pm": UNAPPROVED_MSG, "dızcı": "Stiket Brend Paketinə əlavə olunur", "ban": "**{mention}** `qadağan edildi!`", "mute": "**{mention}** `səssizə alındı`", "approve": "**{mention}** `mənə mesaj göndərə bilərsən!`", "tagsleep": "3", "disapprove": "{mention} **Bundan sonra mənə mesaj göndərə bilməzsən!**", "block": "**{mention}** `əngəlləndin!`"}
 
     PLUGIN_MESAJLAR_NOVLER = ["alive", "alives", "afk", "kickme", "pm", "dızcı", "ban", "mute", "approve", "tagsleep", "disapprove", "block"]
     for mesaj in PLUGIN_MESAJLAR_NOVLER:
