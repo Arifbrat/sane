@@ -3,7 +3,7 @@
   <h1>Secret Userbot</h1>
 </div>
 <p align="center">
-    Secret 𝑈𝑠𝑒𝑟𝐵𝑜𝑡, 𝑇𝑒𝑙𝑒𝑔𝑟𝑎𝑚ı daha sadə və funksional hala gətirmək üçün sizin xidmətinizdədir. Userbotun qurulumu tamamı ilə pulsuzdur. <br>
+    Secret Userbot, telegramı daha sadə və funksional hala gətirmək üçün sizin xidmətinizdədir. Userbotun qurulumu tamamı ilə pulsuzdur. <br>
     <br>
         <a href="https://t.me/SecretUsbot">Telegram </a> |
         <a href="https://t.me/TheSecretSup">Kömək qrupumuz</a>
