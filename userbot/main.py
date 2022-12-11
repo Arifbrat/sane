@@ -29,7 +29,7 @@ UNAPPROVED_MSG = ("🗣️Hey {mention}, Mən @SecretUsbot -am.\n\n"
                   "✅Sahibimin sizə icazə verməsini gözləyin\n"
                   "🙃Yazmağa davam etsəniz əngəllənəcəksiniz\n"
                   "✨Gözlədiyiniz üçün təşəkkürlər\n"
-                  "👑İmza: @SecretUsbot )
+                  "👑İmza: @SecretUsbot")
 
 DB = connect("brend.check")
 CURSOR = DB.cursor()
