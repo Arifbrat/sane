@@ -13,9 +13,9 @@ from math import ceil
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
 if CONSOLE_LOGGER_VERBOSE:
-    basicConfig(format="%(asctime)s - @SecretUsBot - %(levelname)s - %(message)s", level=DEBUG)
+    basicConfig(format="%(asctime)s - @BrendUserBot - %(levelname)s - %(message)s", level=DEBUG)
 else:
-    basicConfig(format="%(asctime)s - @SecretUsBot - %(levelname)s - %(message)s",  level=INFO)
+    basicConfig(format="%(asctime)s - @BrendUserBot - %(levelname)s - %(message)s",  level=INFO)
 LOGS = getLogger(__name__)
 
 if version_info[0] < 3 or version_info[1] < 8:
@@ -23,7 +23,7 @@ if version_info[0] < 3 or version_info[1] < 8:
               "Birdən çox xüsusiyyət bundan asılıdır. Bot bağlanır.")
     quit(1)
     
-BREND_VERSION = "v1"
+BREND_VERSION = "v5"
 API_ID = int(os.environ.get("API_KEY", "1558926"))
 API_HASH = os.environ.get("API_HASH", "69c4c16e17e9f637818f2cfce8f9bce5")
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
@@ -71,7 +71,7 @@ BRAIN_CHECKER = []
 if STRING_SESSION:
     bot = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 else:
-    bot = TelegramClient("secret", API_ID, API_HASH)
+    bot = TelegramClient("brend", API_ID, API_HASH)
 
 if os.path.exists("brend.check"):
     os.remove("brend.check")
@@ -93,11 +93,11 @@ async def check_botlog_chatid():
         return
     entity = await bot.get_entity(BOTLOG_CHATID)
     if entity.default_banned_rights.send_messages:
-        LOGS.info("Hesabınızla BOTLOG_CHATID qrupuna mesaj göndərmək olmur/nQrup ID-sini düzgün yazdığınızdan əmin olun.")
+        LOGS.info("Hesabınızla BOTLOG_CHATID qrupuna mesaj göndərmək olmurş/nQrup ID-sini düzgün yazdığınızdan əmin olun.")
         quit(1)
         
 if not BOT_TOKEN == None:
-    tgbot = TelegramClient("Secret_Bot",api_id=API_ID, api_hash=API_HASH).start(bot_token=BOT_TOKEN)
+    tgbot = TelegramClient("Brend_Bot",api_id=API_ID, api_hash=API_HASH).start(bot_token=BOT_TOKEN)
 else:
     tgbot = None
 
@@ -120,8 +120,8 @@ def butonla(sehife, modullar):
 
 with bot:
     try:
-        bot(JoinChannelRequest("@SecretUsbot"))
-        bot(JoinChannelRequest("@TheSecretSup"))
+        bot(JoinChannelRequest("@BrendUserbot"))
+        bot(JoinChannelRequest("@BrendSupport"))
     except:
         pass
 
@@ -133,34 +133,34 @@ with bot:
     DEFAULT_NAME = f"{me.first_name}"
     SAHIB = me.id
     BREND_MENTION = f"[{DEFAULT_NAME}](tg://user?id={SAHIB})"
-    helplogo = "https://te.legra.ph/file/5579c04c24fd5dce3116f.jpg"
+    helplogo = "https://telegra.ph/file/92494510fe2b53d30492c.gif"
 
     try:
         @tgbot.on(NewMessage(pattern='/start'))
         async def helpstart(event):
             if not event.message.from_id == uid:
-                await event.reply(f'Salam mən @SecretUsbot Assistant!\nMən {BREND_MENTION} üçün hazırlanmışam, yəni sənə kömək edə bilmərəm.\nAmma sən də öz hesabına [Secret Userbot](t.me/SecretUsbot) qura bilərsən.')
+                await event.reply(f'Salam mən @BrendUserbot Assistant!\nMən {BREND_MENTION} üçün hazırlanmışam, yəni sənə kömək edə bilmərəm.\nAmma sən də öz hesabına [Brend Userbot](t.me/BrendUserbot) qura bilərsən.')
             else:
-                await event.reply(f'Salam {DEFAULT_NAME}!\nSecret Köməkçi aktivdir.')
+                await event.reply(f'Salam {DEFAULT_NAME}!\nBrend Köməkçi aktivdir.')
                                   
         @tgbot.on(InlineQuery)  
         async def inline_handler(event):
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@SecretUsbot"):
+            if event.query.user_id == uid and query.startswith("@BrendUserbot"):
                 rev_text = query[::-1]
                 veriler = (butonla(0, sorted(CMD_HELP)))
                 result = builder.photo(
                     file=helplogo,
                     link_preview=False, 
-                    text=f"**👑Secret Userbot**\n\n**📥Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄Səhifə:** 1/{veriler[0]}", 
+                    text=f"**⚡ 𝐁𝐫𝐞𝐧𝐝 𝐔𝐬𝐞𝐫𝐛𝐨𝐭​**\n\n**📥 Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄 Səhifə:** 1/{veriler[0]}", 
                     buttons=veriler[1])
             elif query.startswith("http"):
                 parca = query.split(" ")
-                result = builder.article("@Secret", text=f"**📂Fayl uğurla {parca[2]} saytına yükləndi!**\n\n⏱️ Yükləmə müddəti: {parca[1][:3]} saniyə\n[‏‏‎hmm]({parca[0]})", buttons=[[custom.Button.url('URL', parca[0])]], link_preview=True)
+                result = builder.article("@Brend", text=f"**📂 Fayl uğurla {parca[2]} saytına yükləndi!**\n\n⏱️ Yükləmə müddəti: {parca[1][:3]} saniyə\n[‏‏‎hmm]({parca[0]})", buttons=[[custom.Button.url('URL', parca[0])]], link_preview=True)
             else:
-                result = builder.article("@SecretUsbot", text="@BrendUserbot işlətməyi yoxlayın! Sizdə Hesabınıza bot qurub istifadə edə bilərsiniz.", buttons=[[custom.Button.url("⚡ Brend Userbot", "https://t.me/BrendUserBot"), custom.Button.url("Dəstək Qrupu 👨🏻‍🔧", "https://t.me/BrendSUP")], [custom.Button.url("📨 Plugin Kanalı 📢", "https://t.me/BrendPlugin")]], link_preview=False)
+                result = builder.article("@BrendUserbot", text="@BrendUserbot işlətməyi yoxlayın! Sizdə Hesabınıza bot qurub istifadə edə bilərsiniz.", buttons=[[custom.Button.url("⚡ Brend Userbot", "https://t.me/BrendUserBot"), custom.Button.url("Dəstək Qrupu 👨🏻‍🔧", "https://t.me/BrendSUP")], [custom.Button.url("📨 Plugin Kanalı 📢", "https://t.me/BrendPlugin")]], link_preview=False)
             await event.answer([result] if result else None)
 
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sehife\((.+?)\)")))
@@ -169,22 +169,22 @@ with bot:
                 return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
             sehife = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonla(sehife, CMD_HELP)
-            text = f"**👑Secret Userbot*\n\n**📥 Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄 Səhifə:** {sehife + 1}/{veriler[0]}"
+            text = f"**⚡ 𝐁𝐫𝐞𝐧𝐝 𝐔𝐬𝐞𝐫𝐛𝐨𝐭​**\n\n**📥 Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄 Səhifə:** {sehife + 1}/{veriler[0]}"
             await event.edit(text, file=helplogo, buttons=veriler[1], link_preview=False)
         
         @tgbot.on(callbackquery.CallbackQuery(data=compile(rb"ofen")))
         async def ofen(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌Hey! Mənim mesajlarıma toxunma! Öz hesabına @SecretUsbot qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
             sehife = int(looters)
             veriler = butonla(sehife, CMD_HELP)
-            text = f"**👑Secret Userbot​**\n\n**📥Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄Səhifə:** {sehife + 1}/{veriler[0]}"
+            text = f"**⚡ 𝐁𝐫𝐞𝐧𝐝 𝐔𝐬𝐞𝐫𝐛𝐨𝐭​**\n\n**📥 Yüklənən modul sayı:** `{len(CMD_HELP)}`\n**📄 Səhifə:** {sehife + 1}/{veriler[0]}"
             await event.edit(text, file=helplogo,  buttons=veriler[1],  link_preview=False)
 
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"close")))
         async def sehife(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌Hey! Mənim mesajlarıma toxunma! Öz hesabına @SecretUsbot qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
             buttons =[[custom.Button.inline("Menyunu aç", data="ofen")]]
             await event.edit("Menyu bağlandı", buttons=buttons)
 
@@ -192,47 +192,47 @@ with bot:
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌Hey! Mənim mesajlarıma toxunma! Öz hesabına @SecretUsbot qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
             sehife = int(event.data_match.group(1).decode("UTF-8"))
             emr = event.data_match.group(2).decode("UTF-8")
             try:
                 butonlar = [custom.Button.inline("💎 " + cmd[0], data=f"emr[{emr}[{sehife}]]({cmd[0]})") for cmd in CMD_HELP_BOT[emr]['commands'].items()]
             except KeyError:
-                return await event.answer("❌Bu modula açıqlama yazılmayıb.", cache_time=0, alert=True)
+                return await event.answer("❌ Bu modula açıqlama yazılmayıb.", cache_time=0, alert=True)
             butonlar = [butonlar[i:i + 2] for i in range(0, len(butonlar), 2)]
-            butonlar.append([custom.Button.inline("⬅️Geri", data=f"sehife({sehife})")])
-            await event.edit(f"**📂Fayl:** `{emr}`\n**🔢Əmr sayı:** `{len(CMD_HELP_BOT[emr]['commands'])}`", file=helplogo, buttons=butonlar, link_preview=False)
+            butonlar.append([custom.Button.inline("👈🏻 Geri", data=f"sehife({sehife})")])
+            await event.edit(f"**📂 Fayl:** `{emr}`\n**🔢 Əmr sayı:** `{len(CMD_HELP_BOT[emr]['commands'])}`", file=helplogo, buttons=butonlar, link_preview=False)
 
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"emr\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def emr(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌Hey! Mənim mesajlarıma toxunma! Öz hesabına @SecretUsbot qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarıma toxunma! Öz hesabına @BrendUserbot qur.", cache_time=0, alert=True)
             cmd = event.data_match.group(1).decode("UTF-8")
             sehife = int(event.data_match.group(2).decode("UTF-8"))
             emr = event.data_match.group(3).decode("UTF-8")
-            result = f"**🗂️Fayl:** `{cmd}`\n"
+            result = f"**🗂️ Fayl:** `{cmd}`\n"
             if CMD_HELP_BOT[cmd]['info']['info'] == '':
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
-                    result += f"**⬇️Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
-                    result += f"**⚠️Diqqət:** {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
+                    result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
+                    result += f"**⚠️ Diqqət:** {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
                 else:
-                    result += f"**⬇️Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n\n"
+                    result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n\n"
             else:
-                result += f"**⬇️Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
+                result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
-                    result += f"**⚠️Diqqət:** {CMD_HELP_BOT[cmd]['info']['warning']}\n"
-                result += f"**ℹ️Info:** {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
+                    result += f"**⚠️ Diqqət:** {CMD_HELP_BOT[cmd]['info']['warning']}\n"
+                result += f"**ℹ️ Info:** {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
             command = CMD_HELP_BOT[cmd]['commands'][emr]
             if command['params'] is None:
                 result += f"**🛠 Əmr:** `{PATTERNS[:1]}{command['command']}`\n"
             else:
                 result += f"**🛠 Əmr:** `{PATTERNS[:1]}{command['command']} {command['params']}`\n"
             if command['example'] is None:
-                result += f"**💬Açıqlama:** `{command['usage']}`\n\n"
+                result += f"**💬 Açıqlama:** `{command['usage']}`\n\n"
             else:
-                result += f"**💬Açıqlama:** `{command['usage']}`\n"
-                result += f"**⌨️Nümunə:** `{PATTERNS[:1]}{command['example']}`\n\n"
-            await event.edit(result, file=helplogo, buttons=[custom.Button.inline("⬅️Geri", data=f"bilgi[{sehife}]({cmd})")], link_preview=False)
+                result += f"**💬 Açıqlama:** `{command['usage']}`\n"
+                result += f"**⌨️ Nümunə:** `{PATTERNS[:1]}{command['example']}`\n\n"
+            await event.edit(result, file=helplogo, buttons=[custom.Button.inline("👈🏻 Geri", data=f"bilgi[{sehife}]({cmd})")], link_preview=False)
     except Exception as e:
         print(e)
         LOGS.info(f"Botunuzda inline rejimi deaktivdir./nAktivləşdirmək üçün botunuzda inline rejimini aktivləşdirin./nBunun xaricində bir problem olduğunu düşünürsünüzsə, dəstək qrupumla əlaqə saxlayın. @BrendSUP/n/n{e}")
